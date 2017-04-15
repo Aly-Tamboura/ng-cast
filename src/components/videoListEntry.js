@@ -4,9 +4,10 @@ angular.module('video-player')
     restrict: 'EA',
     scope: {
       vid: '<',
+      selectVideo: '=',
     },
     controller: function($scope){
-      // console.log('this is videolistentry ' ,$scope);
+      //console.log('this is videolistentry ' ,$scope);
     },
     controllerAs: 'ctrl',
     bindToController: true,

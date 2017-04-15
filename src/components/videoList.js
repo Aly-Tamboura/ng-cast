@@ -3,10 +3,11 @@ angular.module('video-player')
   return {
     restrict: 'EA',
     scope: {
-      videodata: '<'
+      videodata: '<',
+      selectVideo: '=',
     },
     controller: function($scope){
-      // console.log('this is video list ' ,$scope);
+      console.log('this is video list ' ,$scope);
     },
     controllerAs: 'ctrl',
     bindToController: true,

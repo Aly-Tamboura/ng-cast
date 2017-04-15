@@ -3,7 +3,7 @@
     <img class="media-object" ng-src={{ctrl.vid.snippet.thumbnails.default.url}} />
   </div>
   <div class="media-body">
-    <div class="video-list-entry-title">{{ctrl.vid.snippet.title}}</div>
+    <div class="video-list-entry-title" ng-click="ctrl.selectVideo(ctrl.vid)">{{ctrl.vid.snippet.title}}</div>
     <div class="video-list-entry-detail">{{ctrl.vid.snippet.description}}</div>
   </div>
 </li>
