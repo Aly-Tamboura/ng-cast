@@ -1,16 +1,17 @@
 angular.module('video-player')
-
-.directive('videoPlayer', function() {
+.controller('videoPlayerController', [ '$sce', function($sce) {
+}])
+.directive('videoPlayer',function($sce) {
     return {
     restrict: 'EA',
     scope: {
       videoplayer: '<',
     },
     controller: function($scope){
-      $scope.getIframeSrc = function (videoId) {
-        return 'https://www.youtube.com/embed/' + videoId;
+      this.url = function(videoId) {
+        return $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + videoId);
       }
-      console.log('this is videoPlayer' ,$scope);
+      // console.log('this is videoPlayer' ,$scope);
     },
     controllerAs: 'ctrl',
     bindToController: true,

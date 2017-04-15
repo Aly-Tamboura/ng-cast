@@ -6,7 +6,7 @@ angular.module('video-player')
       videodata: '<'
     },
     controller: function($scope){
-      console.log('this is video list ' ,$scope);
+      // console.log('this is video list ' ,$scope);
     },
     controllerAs: 'ctrl',
     bindToController: true,
