@@ -15,7 +15,7 @@ angular.module('video-player')
       this.url = function(videoId) {
         return $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + videoId);
       }
-      console.log('this is videoPlayer' ,$scope);
+      //console.log('this is videoPlayer' ,$scope);
     },
   };
 });

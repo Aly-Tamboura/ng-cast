@@ -1,26 +1,22 @@
-angular.module('video-player', [])
+angular.module('video-player')
 
-.controller('videoCnt' ,[ '$sce', '$window', '$scope', function( $sce, $window, $scope) {
+.controller('videoCnt' , function( $window, $scope, youTube) {
   this.data = $window.exampleVideoData;
-  this.videoData = $window.exampleVideoData[0];
-  // this.selectVideo = function(input) {
-  //   console.log('clicked', input)
-  //   console.log('this is tha player value ', $window.exampleVideoData[0])
-  // 
-  //console.log('this is in the consoler ', $scope)
-
-  this.searchResults = function() {
-
+  this.currentVideo = $window.exampleVideoData[0];
+  this.searchResults = function(youTubeData) {
+    this.data = youTubeData;
+    this.currentVideo = youTubeData[0];
   }
-
+  youTube.search('cats', this.searchResults.bind(this));
   this.selectVideo = (input) => {
-  this.videoData = input        
+    this.currentVideo = input        
   }
-  this.currentVideo = {
-
+  this.searchinput = "";
+  this.searchBar = (text) => {
+    youTube.search( text , this.searchResults.bind(this));
+    this.searchinput = "";
   }
-}])
-
+})
 
 .directive('app', function($sce, $window) {
   return {
@@ -28,6 +24,8 @@ angular.module('video-player', [])
     scope: {
       videodata: '<',
       video: '<',
+      searchBar: '<',
+      searchinput: '<'
     },
     controller: 'videoCnt',
     controllerAs: 'ctrl',
